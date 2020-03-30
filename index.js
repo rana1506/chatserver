@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 const http = require('http').createServer(app)
 
@@ -15,7 +15,7 @@ app.get('/something', (req, res) => {
     res.send(temp)  
 })
 app.post('/something', (req, res) => {
-    temp=req.body.color  // true  
+    temp=req.query.color  // true  
     res.send(temp)  
 })
 //Socket Logic
