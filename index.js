@@ -1,12 +1,12 @@
 const express = require('express')
 const app = express()
 
-app.use(express.urlencoded());
 
 const http = require('http').createServer(app)
 
 var port    =   process.env.PORT || 8080;
 var temp="null data";
+
 app.get('/', (req, res) => {	
     res.send("Node Server is running. Yayy!!  "+ temp)
 })
@@ -15,7 +15,7 @@ app.get('/something', (req, res) => {
     res.send(temp)  
 })
 app.post('/something', (req, res) => {
-    temp=req.body.color  // true  
+    temp=req.query.color  // true  
     res.send(temp)  
 })
 //Socket Logic
@@ -27,7 +27,7 @@ socketio.on("connection", (userSocket) => {
     })
 })
 
-
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 http.listen(port)
