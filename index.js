@@ -15,7 +15,7 @@ app.get('/something', (req, res) => {
     res.send(temp)  
 })
 app.post('/something', (req, res) => {
-    temp=req.query.color  // true  
+    temp=req.body.color  // true  
     res.send(temp)  
 })
 //Socket Logic
