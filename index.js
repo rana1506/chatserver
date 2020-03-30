@@ -16,7 +16,7 @@ app.get('/something', (req, res) => {
 })
 app.post('/something', (req, res) => {
     temp=req.query.color  // true  
-    res.send(temp)  
+    res.send(temp+temp)  
 })
 //Socket Logic
 const socketio = require('socket.io')(http)
