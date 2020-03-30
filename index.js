@@ -26,7 +26,6 @@ socketio.on("connection", (userSocket) => {
 })
 
 
-app.use(express.json());       // to support JSON-encoded bodies
-app.use(express.urlencoded()); // to support URL-encoded bodies
+
 
 http.listen(port)
