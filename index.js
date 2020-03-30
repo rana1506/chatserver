@@ -1,5 +1,8 @@
 const app = require('express')()
+var bodyParser = require('body-parser');
+
 const http = require('http').createServer(app)
+
 var port    =   process.env.PORT || 8080;
 var temp="null data";
 app.get('/', (req, res) => {	
@@ -21,5 +24,9 @@ socketio.on("connection", (userSocket) => {
         userSocket.broadcast.emit("receive_message", data)
     })
 })
+
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+
 
 http.listen(port)
