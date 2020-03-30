@@ -9,11 +9,11 @@ app.get('/', (req, res) => {
     res.send("Node Server is running. Yayy!!  "+ temp)
 })
 app.get('/something', (req, res) => {
-    temp=req.query.color1  // true  
+    temp=req.query.color  // true  
     res.send(temp)  
 })
 app.post('/something', (req, res) => {
-    temp=req.query.color1  // true  
+    temp=req.body.color  // true  
     res.send(temp)  
 })
 //Socket Logic
